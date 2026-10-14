@@ -42,6 +42,7 @@ import indHealth from "@/assets/industry-healthcare.jpg";
 import indBfsi from "@/assets/industry-bfsi.jpg";
 import indRetail from "@/assets/industry-retail.jpg";
 import indEng from "@/assets/industry-engineering.jpg";
+import { withBase } from "@/lib/base-path";
 
 /* ------------------------------------------------------------------ */
 /* Reveal on scroll                                                    */
@@ -114,7 +115,7 @@ function Navbar() {
           {links.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={withBase(l.href)}
               className={`text-sm font-semibold transition-colors ${
                 scrolled
                   ? "text-ink hover:text-brand"
@@ -154,7 +155,7 @@ function Navbar() {
             {links.map((l) => (
               <a
                 key={l.href}
-                href={l.href}
+                href={withBase(l.href)}
                 onClick={() => setOpen(false)}
                 className="text-ink font-semibold py-2"
               >
@@ -355,7 +356,7 @@ function QuickServices() {
             return (
               <a
                 key={s.name}
-                href={s.href}
+                href={withBase(s.href)}
                 className="card-elite group p-8 flex flex-col relative overflow-hidden"
                 style={{ animation: shown ? `fade-up .8s ${i * 0.08}s both ease-out` : "none" }}
               >
@@ -1177,7 +1178,7 @@ function Footer() {
           <ul className="space-y-2 text-sm">
             {services.map((s) => (
               <li key={s.name}>
-                <a href={s.href} className="hover:text-brand-accent transition-colors">
+                <a href={withBase(s.href)} className="hover:text-brand-accent transition-colors">
                   {s.name}
                 </a>
               </li>

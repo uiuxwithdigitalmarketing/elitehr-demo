@@ -61,6 +61,7 @@ import indHealth from "@/assets/industry-healthcare.jpg";
 import indBfsi from "@/assets/industry-bfsi.jpg";
 import indRetail from "@/assets/industry-retail.jpg";
 import indEng from "@/assets/industry-engineering.jpg";
+import { withBase } from "@/lib/base-path";
 
 /* -------- Reveal on scroll -------- */
 function useReveal<T extends HTMLElement>() {
@@ -146,7 +147,7 @@ function Navbar() {
           {links.map((l) => (
             <a
               key={l.href}
-              href={l.href}
+              href={withBase(l.href)}
               className={`text-sm font-semibold transition-colors ${
                 scrolled ? "text-ink hover:text-brand" : "text-white/90 hover:text-white"
               }`}
@@ -175,7 +176,7 @@ function Navbar() {
         <div className="lg:hidden bg-white border-t border-border">
           <div className="container-elite flex flex-col py-4 gap-3">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-ink font-semibold py-2">
+              <a key={l.href} href={withBase(l.href)} onClick={() => setOpen(false)} className="text-ink font-semibold py-2">
                 {l.label}
               </a>
             ))}
@@ -455,7 +456,7 @@ function Industries() {
           {items.map((it) => (
             <a
               key={it.title}
-              href={`/industries/${it.slug}/`}
+              href={withBase(`/industries/${it.slug}/`)}
               className="group relative rounded-[18px] overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-1.5 block"
             >
               <img src={it.img} alt={it.title} className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
@@ -476,7 +477,7 @@ function Industries() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <a href="/industries/" className="btn-ghost-brand">
+          <a href={withBase("/industries/")} className="btn-ghost-brand">
             Explore All Industries <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -521,7 +522,7 @@ function Cities() {
             return (
               <a
                 key={c.slug}
-                href={`/recruitment-agency-${c.slug}/`}
+                href={withBase(`/recruitment-agency-${c.slug}/`)}
                 className="group block py-7 border-b border-border relative"
               >
                 <div className="flex justify-between items-start gap-4">
@@ -621,7 +622,7 @@ function ITRecruitment() {
               {cards.map((c) => (
                 <a
                   key={c.title}
-                  href="/services/it-staffing/"
+                  href={withBase("/services/it-staffing/")}
                   className="group card-elite p-5 flex flex-col gap-3"
                 >
                   <div className="grid place-items-center h-11 w-11 rounded-xl bg-brand/10 text-brand transition-all duration-300 group-hover:bg-brand group-hover:text-white group-hover:scale-110">
@@ -649,7 +650,7 @@ function ITRecruitment() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <a href="/services/it-staffing/" className="btn-primary">Hire IT Talent <ArrowRight className="h-4 w-4" /></a>
+              <a href={withBase("/services/it-staffing/")} className="btn-primary">Hire IT Talent <ArrowRight className="h-4 w-4" /></a>
               <a href="#contact" className="btn-secondary"><Handshake className="h-4 w-4" /> Talk to a Recruiter</a>
             </div>
           </div>

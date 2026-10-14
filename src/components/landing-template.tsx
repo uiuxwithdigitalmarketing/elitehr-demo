@@ -21,6 +21,7 @@ import {
   Briefcase,
   type LucideIcon,
 } from "lucide-react";
+import { withBase } from "@/lib/base-path";
 
 /* ================== Types ================== */
 
@@ -358,11 +359,11 @@ function Hero({ c }: { c: LandingConfig }) {
           </Reveal>
           <Reveal delay={300}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href={c.primaryCta?.href ?? "#contact"} className="btn-primary">
+              <a href={withBase(c.primaryCta?.href ?? "#contact")} className="btn-primary">
                 {c.primaryCta?.label ?? "Hire Talent"}
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <a href={c.secondaryCta?.href ?? "#contact"} className="btn-secondary">
+              <a href={withBase(c.secondaryCta?.href ?? "#contact")} className="btn-secondary">
                 {c.secondaryCta?.label ?? "Talk to an Expert"}
               </a>
             </div>
@@ -520,7 +521,7 @@ function Services({ c }: { c: LandingConfig }) {
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {c.services!.items.map((s, i) => (
             <Reveal key={i} delay={i * 60}>
-              <a href={s.href} className="group card-elite p-8 h-full block border border-transparent hover:border-[color:var(--color-brand)]/20">
+              <a href={withBase(s.href)} className="group card-elite p-8 h-full block border border-transparent hover:border-[color:var(--color-brand)]/20">
                 <div className="h-14 w-14 rounded-2xl bg-[color:var(--color-brand-accent)]/10 grid place-items-center">
                   <s.icon className="h-6 w-6 text-[color:var(--color-brand-accent)]" />
                 </div>
@@ -605,7 +606,7 @@ function ImageCardGrid({
           {items.map((it, i) => (
             <Reveal key={it.title} delay={i * 60}>
               <a
-                href={it.href}
+                href={withBase(it.href)}
                 className="group relative block overflow-hidden rounded-[18px] aspect-[4/5] shadow-lg"
               >
                 <img
@@ -816,7 +817,7 @@ function Related({ c }: { c: LandingConfig }) {
                 {g.links.map((l) => (
                   <li key={l.href}>
                     <a
-                      href={l.href}
+                      href={withBase(l.href)}
                       className="group inline-flex items-center gap-1.5 text-[color:var(--color-ink)] hover:text-[color:var(--color-brand)] font-medium"
                     >
                       {l.title}
@@ -940,19 +941,19 @@ function Footer() {
         <div>
           <div className="text-xs uppercase tracking-widest text-[color:var(--color-brand-accent)] font-bold">Services</div>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="/services">Permanent Staffing</a></li>
-            <li><a href="/services">Executive Search</a></li>
-            <li><a href="/services">IT Staffing</a></li>
-            <li><a href="/services">Remote Hiring</a></li>
+            <li><a href={withBase("/services")}>Permanent Staffing</a></li>
+            <li><a href={withBase("/services")}>Executive Search</a></li>
+            <li><a href={withBase("/services")}>IT Staffing</a></li>
+            <li><a href={withBase("/services")}>Remote Hiring</a></li>
           </ul>
         </div>
         <div>
           <div className="text-xs uppercase tracking-widest text-[color:var(--color-brand-accent)] font-bold">Locations</div>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="/locations/ahmedabad">Ahmedabad</a></li>
-            <li><a href="/locations/mumbai">Mumbai</a></li>
-            <li><a href="/locations/bangalore">Bangalore</a></li>
-            <li><a href="/locations/pune">Pune</a></li>
+            <li><a href={withBase("/locations/ahmedabad")}>Ahmedabad</a></li>
+            <li><a href={withBase("/locations/mumbai")}>Mumbai</a></li>
+            <li><a href={withBase("/locations/bangalore")}>Bangalore</a></li>
+            <li><a href={withBase("/locations/pune")}>Pune</a></li>
           </ul>
         </div>
         <div>
