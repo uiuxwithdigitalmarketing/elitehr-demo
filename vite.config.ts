@@ -7,8 +7,10 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // GITHUB_PAGES=true (set by .github/workflows/deploy.yml) produces a fully static,
-// prerendered build in dist/client for GitHub Pages. Lovable builds are unaffected.
+// prerendered build in dist/client for GitHub Pages, served under /elitehr-demo/.
+// Lovable builds are unaffected.
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const BASE_PATH = "/elitehr-demo";
 
 export default defineConfig({
   tanstackStart: {
@@ -16,12 +18,13 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
     ...(isGitHubPages && {
+      router: { basepath: BASE_PATH },
       prerender: { enabled: true, crawlLinks: true, failOnError: false },
       pages: [{ path: "/sitemap.xml" }],
     }),
   },
   ...(isGitHubPages && {
     nitro: false as const,
-    vite: { preview: { host: "127.0.0.1" } },
+    vite: { base: `${BASE_PATH}/`, preview: { host: "127.0.0.1" } },
   }),
 });
