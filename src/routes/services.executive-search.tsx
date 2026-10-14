@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import LandingTemplate from "@/components/landing-template";
 import { executiveSearchConfig } from "@/components/landing-configs";
+import { withBase } from "@/lib/base-path";
 
 const title = "Executive Search Firm in India | Elite HR Services";
 const description =
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/services/executive-search")({
       { property: "og:url", content: "/services/executive-search" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/services/executive-search" }],
+    links: [{ rel: "canonical", href: withBase("/services/executive-search") }],
     scripts: [
       {
         type: "application/ld+json",

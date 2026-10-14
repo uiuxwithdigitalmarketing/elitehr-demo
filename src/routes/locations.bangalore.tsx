@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import LandingTemplate from "@/components/landing-template";
 import { bangaloreConfig } from "@/components/landing-configs";
+import { withBase } from "@/lib/base-path";
 
 const title = "Recruitment Agency in Bangalore | Elite HR Services";
 const description =
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/locations/bangalore")({
       { property: "og:url", content: "/locations/bangalore" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/locations/bangalore" }],
+    links: [{ rel: "canonical", href: withBase("/locations/bangalore") }],
     scripts: [
       {
         type: "application/ld+json",

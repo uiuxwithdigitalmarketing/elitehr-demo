@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicesLanding from "@/components/services-landing";
+import { withBase } from "@/lib/base-path";
 
 const title = "HR & Staffing Services India | Elite HR Services";
 const description =
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: withBase("/") }],
     scripts: [
       {
         type: "application/ld+json",

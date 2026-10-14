@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import AhmedabadLanding from "@/components/ahmedabad-landing";
+import { withBase } from "@/lib/base-path";
 
 const title = "Recruitment Agency in Ahmedabad | Elite HR Services";
 const description =
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/ahmedabad")({
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/ahmedabad" }],
+    links: [{ rel: "canonical", href: withBase("/ahmedabad") }],
     scripts: [
       {
         type: "application/ld+json",

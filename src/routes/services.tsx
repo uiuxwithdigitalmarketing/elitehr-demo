@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ServicesLanding from "@/components/services-landing";
+import { withBase } from "@/lib/base-path";
 
 const title = "HR & Staffing Services India | Elite HR Services";
 const description =
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/services")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/services" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: withBase("/services") }],
   }),
   component: ServicesLanding,
 });

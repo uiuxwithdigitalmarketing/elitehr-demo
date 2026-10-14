@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import LandingTemplate from "@/components/landing-template";
 import { manufacturingConfig } from "@/components/landing-configs";
+import { withBase } from "@/lib/base-path";
 
 const title = "Manufacturing Recruitment Agency in India | Elite HR Services";
 const description =
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/industries/manufacturing")({
       { property: "og:url", content: "/industries/manufacturing" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/industries/manufacturing" }],
+    links: [{ rel: "canonical", href: withBase("/industries/manufacturing") }],
     scripts: [
       {
         type: "application/ld+json",
